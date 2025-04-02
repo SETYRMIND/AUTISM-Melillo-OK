@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>שאלון מלילו להערכת הסגנון הקוגניטיבי</title>
+    <style>    
+ body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f8;
+            text-align: right;
+            direction: rtl;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        #questions {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        .question {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+            font-size: 0.9em;
+        }
+        .question-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .option-container {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .buttons-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: relative;
+            flex: 1;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+  /* Tooltip styles */
+        [data-tooltip] {
+            position: relative;
+        }
+
+        [data-tooltip]:before {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 8px;
+            background-color: #333;
+            color: white;
+            border-radius: 4px;
+            font-size: 14px;
+            white-space: nowrap;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            margin-bottom: 5px;
+            z-index: 1000;
+        }
+
+        [data-tooltip]:hover:before {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        #results, #saveStatus {
+            background-color: #e6f2ff;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .progress {
+            width: 100%;
+            background-color: #e0e0e0;
+            padding: 3px;
+            border-radius: 3px;
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            width: 0%;
+            height: 20px;
+            background-color: #3498db;
+            border-radius: 3px;
+            transition: width 0.5s ease-in-out;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px;
+            text-align: center;
+        }
+        #surveyCode {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+       
+       /* Style for bottom buttons container */
+       
+         .bottom-buttons-container {
+            margin-top: 30px; 
+      /* Add space above bottom buttons */
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="saveModal" class="modal">
+        <div class="modal-content">
+            <h2>קוד שמירת סקר</h2>
+            <div id="surveyCode"></div>
+            <p>נא לשמור קוד זה לשימוש עתידי</p>
+            <button onclick="closeSaveModal()">סגור</button>
+        </div>
+    </div>
+
+    <div class="container">
+    <h2>שאלון מלילו להערכת הסגנון הקוגניטיבי</h2>    
+    <!-- מיקום תוצאות שמירה בראש העמוד -->
+    <div id="results" class="results"></div>
+        <div id="saveStatus"></div>
+
+        <div class="progress">
+            <div id="progressBar" class="progress-bar"></div>
+        </div>
+
+      <div class="buttons-container">
+       <button onclick="calculateResults()" 
+                    data-tooltip="חישוב ומשמעות התוצאות">
+                הצג תוצאות
+            </button>
+
+      <button onclick="saveResults()" 
+                 data-tooltip="שמירה מקומית, יוצג קוד לשימוש עתידי">       
+                 שמור טופס                  
+             </button>
+
+           
+    <button onclick="loadSavedSurvey()" 
+                    data-tooltip="  טעינת טופס שמור (נדרש קוד)">
+                טען טופס קיים
+            </button> 
+
+     <button onclick="resetForm()" 
+                    data-tooltip="מחיקת כל הסימונים והתחלה מחדש">
+                אפס טופס
+            </button>
+
+   <button onclick="lockForm()"         
+               data-tooltip="נעל את הטופס לאחר סיום המילוי ושמירה. לאחר הנעילה לא ניתן לבצע שינויים ו/או שמירה ">
+               נעל טופס 
+    </button>
+  </div>
+
+<p>חישוב התוצאות ומשמעותן בראש העמוד ע"י כפתור "הצג תוצאות" לאחר בחירת אחת התגובות בכל 100 הסעיפים.</p>      
+      
+<p>ניתן לשמור את הטופס בכל שלב על ידי הכפתור  "שמור טופס" ולחזור אליו להמשך המילוי באמצעות "טען טופס קיים" בעזרת הקוד שיוצג לאחר השמירה.</p>
+<p>מטעמי נוחות השאלון מנוסח בלשון זכר אך מיועד לנשים וגברים כאחד. </p>
+<p>  </p>
+<p>בחר את התגובה המתארת בצורה הטובה ביותר את נטייתך הטבעית, לא את ההתנהגויות שלמדת. חשבו על עצמכם כילדים, מתבגרים או מבוגרים צעירים ואיך הייתם עונים אז.</p>
+<p> </p>
+<p> יש לבחור תגובה אחת בכל סעיף, גם אם אינה מתאימה לכם בדיוק. אין להשאיר סעיפים ריקים!</p>
+
+
+  <div id="questions"></div>
+    </div>
+<p>תוצאות בראש הדף </p>
+  <div class="buttons-container bottom-buttons-container">
+       <button onclick="handleBottomButtonClick(calculateResults)" 
+                    data-tooltip="חישוב ומשמעות התוצאות">
+                הצג תוצאות
+            </button>
+
+     <button onclick="handleBottomButtonClick(saveResults)"
+                 data-tooltip="שמירה מקומית, יוצג קוד לשימוש עתידי">       
+                 שמור טופס                  
+             </button>
+
+           
+    <button onclick="handleBottomButtonClick(loadSavedSurvey)" 
+                    data-tooltip="  טעינת טופס שמור (נדרש קוד)">
+                טען טופס קיים
+            </button> 
+
+     <button onclick="handleBottomButtonClick(resetForm)" 
+                    data-tooltip="מחיקת כל הסימונים והתחלה מחדש">
+                אפס טופס
+            </button>
+
+   <button onclick="handleBottomButtonClick(lockForm)"         
+               data-tooltip="נעל את הטופס לאחר סיום המילוי ושמירה. לאחר הנעילה לא ניתן לבצע שינויים ו/או שמירה ">
+               נעל טופס 
+    </button>
+  </div>
+
+
+   <script>
+   
+ // הוספת פונקציה לטיפול בלחיצה על כפתורים תחתונים
+        function handleBottomButtonClick(actionFunction) {
+            // קודם מבצעים את הפעולה המקורית של הכפתור
+            actionFunction();
+            // אחר כך גוללים לראש הדף בצורה חלקה
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+     // מייצר מבנה של  100 שאלות   
+       //   const formData = Array.from({length: 100}, (_, i) => ({
+       //      number: i + 1,
+       //      A: `תגובה A לשאלה ${i + 1}`, 
+       //      B: `תגובה B לשאלה ${i + 1}`
+      //     }));
+
+     const formData =[
+        { number: 1, A: " אני אוהב לעשות וללמוד דברים צעד אחר צעד.", B: "אני אוהב לעשות וללמוד הרבה דברים בו זמנית." },
+        { number: 2, A: " אני נוטה להתמקד בפרטים. ", B: "אני נוטה להתמקד בתמונה הגדולה. " },
+        { number: 3, A: " אני לא תמיד מבין את הבדיחה או חושב שמשהו מצחיק כמו אחרים.", B: "אני תמיד מבין את הבדיחה עוד לפני אחרים." },
+        { number: 4, A: " אני לא אוהב שינויים. ", B: "אני צריך לשנות דברים לעתים קרובות." }, 
+        { number: 5, A: " אני אוהב שגרה. ", B: "לעתים רחוקות אני עושה משהו באותו אופן פעמיים. " },
+        { number: 6, A: " יש לי כתב יד טוב מאוד.", B: "יש לי כתב יד גרוע." },
+        { number: 7, A: " אני אוהב כשהדברים מפורטים בבירור במדויק.", B: "אני אוהב לחשוב בהכללות. " },
+        { number: 8, A: " אני נוטה לקחת דברים פשוטו כמשמעו.", B: "אני טוב בקריאה בין השורות." },
+        { number: 9, A: " אני אקרא חוזה או הוראות שוב ושוב כדי לוודא שאני לא מפספס שום דבר. ", B: "אני לא אוהב לקרוא חוזים או הוראות. " },
+        { number: 10, A: " אני מאמין או נאמר לי שיש לי מנת משכל גבוהה. ", B: "אני מאמין או נאמר לי שיש לי מנת משכל ממוצעת. " },
+        { number: 11, A: " הצלחתי יותר בחלק המתמטי של הפסיכומטרי. ", B: "הצלחתי יותר בחלק המילולי של הפסיכומטרי." },
+        { number: 12, A: " אהבתי את בית הספר ואני טוב באקדמיה. ", B: "לא אהבתי את הלימודים וזה השפיע על הציונים שלי. " },
+        { number: 13, A: " אני טוב בלמידה על ידי שינון וחזרה.", B: "אני לומד הכי טוב פשוט על ידי עשיית משהו." },
+        { number: 14, A: " אני מעדיף לעבוד עם מחשבים. ", B: "אני מעדיף לעבוד עם אנשים. " },
+        { number: 15, A: " אני לא טוב ברעיונות חדשים. ", B: "אני טוב מאוד בלהמציא רעיונות חדשים. " },
+        { number: 16, A: " אני לא טוב בפתרון בעיות יצירתי. ", B: "אני טוב מאוד בפתרון בעיות במיוחד כשנדרש פתרון יצירתי. " },
+        { number: 17, A: " הייתי יותר טוב באלגברה מאשר בגיאומטריה בבית הספר. ", B: "הייתי יותר טוב בגיאומטריה מאשר באלגברה בבית הספר. " },
+        { number: 18, A: " קל לי לדמיין דברים. ", B: "קשה לי לדמיין דברים. " },
+        { number: 19, A: " אני לא יכול לסובב חפצים במוחי בקלות. ", B: "אני יכול לסובב חפצים במוחי בקלות. " },
+        { number: 20, A: " אני מתקשה להתיידד.", B: "אני מתיידד בקלות. " },
+        { number: 21, A: " אני לא מסתדר טוב עם המין השני.", B: "אני מסתדר טוב מאוד עם המין השני. " },
+        { number: 22, A: " אני לא אדם רגשי ואף פעם לא מראה רגשות. ", B: "אני אמוציונלי ומראה רגשות בקלות. " },
+        { number: 23, A: " אני מעדיף ספורט יחידני.", B: "אני מעדיף ספורט קבוצתי." },
+        { number: 24, A: " אני אף פעם לא יכול לדעת מה מישהו חושב. ", B: "אני תמיד חושב שאני יודע מה מישהו חושב. " },
+        { number: 25, A: " אני אוהב לקרוא.", B: "אני לא קורא הרבה. " },
+        { number: 26, A: " אני טוב מאוד באיות ובדקדוק.", B: "אני לא מצטיין באיות ובדקדוק. " },
+        { number: 27, A: " אני אוהב לקרוא ספרי עיון וספרים טכניים. ", B: "אני אוהב לקרוא רומנים וסיפורים. " },
+        { number: 28, A: " אם אני לא מבין מילה; אעצור ואחפש אותה לעתים קרובות מאשר לא.", B: "אם אני לא מבין מילה; בדרך כלל פשוט ממשיך הלאה ומבין את זה אחר כך. " },
+        { number: 29, A: " תמיד הייתי מסוגל לעשות חישובים בקלות בראשי. ", B: "אני לא עושה חישובים בראש שלי טוב;  אני צריך לרשום את זה. " },
+        { number: 30, A: " אני אוהב מספרים;  אני טוב עם מספרים. ", B: "אני לא אוהב מספרים." },
+        { number: 31, A: " אני מסתמך יותר על מידע מספרים מאשר על חוכמת רחוב.", B: "אני יותר מסתמך על חוכמת רחוב מאשר על ידע מספרים. " },
+        { number: 32, A: " אני אוהב לתכנן מראש. ", B: "אני שונא לתכנן;  אני מעדיף לזרום. " },
+        { number: 33, A: " אני לא טוב עם מטאפורות. אני אוהב עובדות .", B: "אני אוהב מטאפורות או דוגמאות היפותטיות." },
+        { number: 34, A: " אני קורא את ההוראות בקפידה לפני שאנסה משהו . ", B: "מעולם לא קראתי הוראות;  אני מעדיף לקפוץ למים." },
+        { number: 35, A: " לפעמים אני מתקשה להבין את הרעיון של הסיפור.", B: "אני תמיד מבין את הרעיון המרכזי של הסיפור." },
+        { number: 36, A: " אני יותר טוב בהבנה מאשר בעשייה. ", B: "אני יותר טוב בעשייה מאשר בהבנה." },
+        { number: 37, A: " אני הגיוני; אני חושב על הדברים בזהירות רבה לפני שאני עושה. ", B: "אני אינטואיטיבי;  אני אוהב לפעול על פי תחושת בטן" },
+        { number: 38, A: " יש לי זיכרון נהדר לעובדות ולפרטים. ", B: "אין לי זיכרון גדול לעובדות או לפרטים." },
+        { number: 39, A: " אני זוכר שמות; לא פרצופים. ", B: "אני טוב מאוד עם פרצופים; אבל שוכח שמות." },
+        { number: 40, A: " יש לי חוש כיוון נוראי. ", B: "יש לי חוש כיוון טוב מאוד. " },
+        { number: 41, A: " יש לי כעס מתפרץ אם לוחצים עלי.", B: "צריך הרבה כדי להכעיס אותי; דברים לא נוטים להטריד אותי." },
+        { number: 42, A: " אני אוהב לעבוד לבד. ", B: "אני אוהב לעבוד יחד כצוות. " },
+        { number: 43, A: " אני אוהב לשמוע קודם כל חדשות רעות . ", B: "אני אוהב לשמוע קודם כל חדשות טובות." },
+        { number: 44, A: " אני טוב בחיסכון בכסף.", B: "אני לא טוב בחיסכון בכסף. " },
+        { number: 45, A: " אני אוהב להיאחז בדברים; נדרש ממני מאמץ רב כדי לזרוק משהו.", B: " אני אוהב להיפטר מדברים ישנים ולהחליף אותם בדברים חדשים." },
+        { number: 46, A: " אני אוהב אמנות ריאליסטית.", B: " אני אוהב אמנות מופשטת." },
+        { number: 47, A: " אני לא ממש מתמקד באיך שאני נראה. ", B: "  אני מאוד מודע לאיך שאני נראה. " },
+        { number: 48, A: " אני לא שם לב מה אחרים חושבים עלי. ", B: "  אני שם לב ואכפת לי מאוד ממה שאחרים חושבים עלי. " },
+        { number: 49, A: " אני לא מכיר או עוקב אחר מגמות אופנה. ", B: " אני אוהב להתלבש בסגנונות העדכניים ביותר. " },
+        { number: 50, A: " אני מעדיף ללבוש בגדים קלאסיים שלבשתי במשך שנים והם נוחים. ", B: " אני מעדיף ללבוש סגנונות חדשים וטרנדיים יותר גם אם זה לא נוח." },
+        { number: 51, A: " אנשים יראו בי חנון.", B: " אף אחד לעולם לא יראה בי חנון. " },
+        { number: 52, A: " אני בדרך כלל מציית לחוקים ומקפיד על הכללים ", B: " אני בדרך כלל לא פועל לפי כללים, אני ממציא כללים משלי; רוב הכללים אינם הגיוניים. " },
+        { number: 53, A: " אני עובד טוב יותר עם חיזוקים חיוביים. אני עובד כדי להשיג מטרה.", B: " אני עובד טוב יותר עם חיזוקים שליליים. אני מתמקד בהימנעות מכישלון." },
+        { number: 54, A: " אני מאוד מסודר ומאורגן.", B: " הייתי נחשב מבולגן ולא מאורגן." },
+        { number: 55, A: " אני אוהב להיות לבד.", B: " אני אוהב להיות ליד אחרים." },
+        { number: 56, A: " אני אף פעם לא זוכר את המילים לשיר. אני יותר אוהב את המוזיקה.", B: " אני אוהב את המילים לשיר וזוכר אותן כמעט מיד." },
+        { number: 57, A: " אני מעדיף אדום צהוב או כתום (צבעים חמים).", B: "  אני מעדיף סגול כחול או ירוק (צבעים קרים)." },
+        { number: 58, A: " אני אוהב דברים שהם מעשה ידי אדם ומכניים. ", B: " אני אוהב דברים שהם טבעיים. " },
+        { number: 59, A: " אני פרפקציוניסט . ", B: " לא אכפת לי אם הדברים לא מושלמים. " },
+        { number: 60, A: " לעולם לא אכתוב או אראה למישהו משהו שכתבתי לפני שבדקתי שגיאות דקדוק או כתיב . ", B: " אני מתעניין יותר בתוכן הכולל של משהו שאני כותב ולא בפרטים כמו איות ודקדוק. " },
+        { number: 61, A: " אני לא טוב בכתיבה יוצרת. ", B: " אני אוהב לכתוב סיפורים משלי." },
+        { number: 62, A: " אני אוהב להאזין למוזיקה קלאסית.", B: " אני אוהב מוזיקה פופולרית; רוק או קאנטרי. " },
+        { number: 63, A: " אני טוב מאוד בלימוד שפות. ", B: " אני נורא בשפות. " },
+        { number: 64, A: " אני יותר טוב בקריאת ספרים מאשר אנשים. ", B: " אני יותר טוב בקריאת אנשים מאשר ספרים. " },
+        { number: 65, A: " אני מבין נפשית את הסבל; אבל אני לא באמת מרגיש אותו. ", B: " אני מרגיש רע מאוד או עצוב עבור אחרים שסובלים. " },
+        { number: 66, A: " לעתים רחוקות אני נכנס לדיכאון. ", B: " אני נכנס לדיכאון בקלות. " },
+        { number: 67, A: " בדרך כלל אני לא אוהב שנוגעים בי; במיוחד על ידי מישהו שאני לא מכיר . ", B: " אני זקוק למגע אנושי ואוהב שנוגעים בי ולגעת באחרים. " },
+        { number: 68, A: " אני קצת חסר קואורדינציה ולא מאוד אתלטי.", B: " אני באופן כללי בעל קואורדינציה טובה ואתלטי. " },
+        { number: 69, A: "  אני מעדיף להישאר בבית. ", B: " אני מעדיף להיות בחוץ. " },
+        { number: 70, A: " אני אוהב לנפוש באותו מקום שוב ושוב.", B: " אני אוהב לנפוש במקומות חדשים. " },
+        { number: 71, A: " אני לא אוהב מסיבות ומפגשים חברתיים. ", B: " אני אוהב מסיבות ומפגשים חברתיים. " },
+        { number: 72, A: " אני ריאליסט. ", B: " אני חולם. " },
+        { number: 73, A: " פונקציונליות הרבה יותר חשובה מאשר סגנון או עיצוב.", B: " עיצוב חשוב לפחות כמו פונקציונליות." },
+        { number: 74, A: " אני מעדיף מתמטיקה; מחקר או מדעים. ", B: " אני מעדיף פילוסופיה ומיתולוגיה. " },
+        { number: 75, A: " אני מעדיף לתקשר באמצעות טקסט או דואר אלקטרוני. ", B: " אני מעדיף לתקשר בטלפון או באופן אישי. " },
+        { number: 76, A: " אני לא אדם של אנשים.", B: " אני בהחלט אדם של אנשים." },
+        { number: 77, A: " אני מעדיף להיות מאורגן ולתכנן דברים.", B: " אני מעדיף להיות ספונטני ולא לדאוג לפרטים. " },
+        { number: 78, A: " אני חושב שהכי חשוב לשפר את הדברים שקיימים ולהפוך אותם לטובים יותר.", B: " אני חושב שהכי חשוב לפתח דברים חדשים ורעיונות חדשים." },
+        { number: 79, A: " אני חושב שתבונה חשובה יותר מרגשות. ", B: " אני חושב שרגשות חשובים יותר מההיגיון. " },
+        { number: 80, A: " כאשר לומדים פרק חדש בספר לימוד אני חושב שעדיף לסמן משפטים חשובים בפרק. ", B: "    כאשר לומדים פרק חדש בספר לימוד אני חושב שעדיף לסכם את הפרק." },
+        { number: 81, A: " אני טוב יותר בתשבצים. ", B: " אני טוב יותר  בפאזלים." },
+        { number: 82, A: "בהפקת תיאטרון אני מעדיף להיות הבמאי.", B: " בהפקת תיאטרון אני מעדיף להיות השחקן הראשי." },
+        { number: 83, A: " אם אני עומד להשתמש בציוד חדש; אני קורא בקפידה את הוראות ההפעלה לפני ההפעלה.", B: " אם אני עומד להשתמש בציוד חדש אני מנסה ומאלתר.  (אשתמש במדריך כמוצא אחרון)." },
+        { number: 84, A: " המילים עצמן חשובות יותר מהאופן שבו נאמרו (טון; קצב; עוצמה; רגש).", B: " האופן שבו נאמרים דברים (טון; קצב; רגש עוצמה)  יותר חשוב מהמילים עצמן. " },
+        { number: 85, A: " אני לא משתמש בתנועות ידיים כשאני מדבר. ", B: " אני משתמש בהרבה מחוות ותנועות ידיים כשאני מדבר. " },
+        { number: 86, A: " אם הייתי תולה תמונה על הקיר; הייתי מודד היטב כדי לוודא שהתמונה ממורכזת וישרה. ", B: "   אם הייתי תולה תמונה על הקיר; הייתי תולה איפה שנראה לי נכון ומזיז במידת הצורך. " },
+        { number: 87, A: "בעבודה; אני מתרכז במשימה אחת בכל פעם עד להשלמתה.", B: " בעבודה; אני בדרך כלל מלהטט בין כמה דברים בבת אחת. " },
+        { number: 88, A: " אני אוהב לתכנן את הצעדים העתידיים שלי.", B: " אני נהנה לחלום על העתיד שלי. " },
+        { number: 89, A: " אני אוהב לפרק רעיונות ולהסתכל עליהם בנפרד. ", B: " אני אוהב לחבר רעיונות. " },
+        { number: 90, A: " אני אוהב ללמוד על דברים שאנחנו בטוחים בהם. ", B: " אני אוהב ללמוד על אפשרויות נסתרות. " },
+        { number: 91, A: " אני חושב שזה יותר מרגש לשפר משהו.", B: "אני חושב שזה יותר מרגש להמציא משהו. " },
+        { number: 92, A: " אני חזק בלזכור דברים מילוליים (שמות ותאריכים). ", B: "   אני חזק בלזכור דברים מרחביים (כיוונים ומיקומים). " },
+        { number: 93, A: " אני מעדיף שקט מוחלט בעת קריאה או לימוד.", B: " אני מעדיף להדליק מוזיקה בזמן קריאה או לימוד. " },
+        { number: 94, A: " אני חושב במילים.", B: " אני חושב בתמונות. " },
+        { number: 95, A: " כילד; הדבר הגרוע ביותר יהיה להיכשל במבחן. ", B: "  כילד; הדבר הגרוע ביותר יהיה: להיות מובך בכיתה. " },
+        { number: 96, A: " למדתי הכי טוב ממורים שהסבירו במילים. ", B: "  למדתי הכי טוב ממורים שהסבירו בתמונות; תנועה; ופעולות. " },
+        { number: 97, A: " אני אוהב להביע רגשות ורעיונות בשפה פשוטה.", B: " אני אוהבת להביע רגשות ורעיונות בשירה; זימרה ריקוד ואמנות." },
+        { number: 98, A: " אני מעדיף לא לנחש או לפעול לפי תחושת בטן.", B: " אני אוהב לפעול לפי תחושת בטן ולנחש." },
+        { number: 99, A: " אני מאוד ישיר וכן עם אנשים", B: "אני משתדל לא לפגוע ברגשות של מישהו ולכן אני לא ישיר עם אנשים." },
+        { number: 100, A: " אני חושב שהתכונה הטובה ביותר היא להיות מאופק וצנוע", B: "אני חושב שהתכונה הטובה ביותר הוא להיות חברותי ומעניין." }
+        ];
+        function loadQuestions() {
+            const questionsDiv = document.getElementById("questions");
+            formData.forEach((item, index) => {
+                const questionDiv = document.createElement("div");
+                questionDiv.className = "question";
+                questionDiv.innerHTML = `
+                    <div class="question-header">
+                        <div>${item.number}.</div>
+                        <div class="option-container">
+                            <div class="option">
+                                <input type="radio" name="q${index}" value="A" id="q${index}A">
+                                <label for="q${index}A">${item.A}</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q${index}" value="B" id="q${index}B">
+                                <label for="q${index}B">${item.B}</label>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                questionsDiv.appendChild(questionDiv);
+            });
+
+            const radioButtons = document.querySelectorAll('input[type="radio"]');
+            radioButtons.forEach(radio => {
+                radio.addEventListener('change', updateProgress);
+            });
+        }
+
+        function updateProgress() {
+            const radioButtons = document.querySelectorAll('input[type="radio"]:checked');
+            const progressPercentage = (radioButtons.length / formData.length) * 100;
+            
+            const progressBar = document.getElementById('progressBar');
+            progressBar.style.width = `${progressPercentage}%`;
+        }
+
+        function saveResults() {
+            const surveyCode = 'S' + Math.random().toString(36).substring(2, 8).toUpperCase();
+            
+            const answers = formData.map((_, index) => {
+                const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                return selected ? selected.value : null;
+            });
+
+            const results = {
+                code: surveyCode,
+                answers: answers,
+                timestamp: new Date().toISOString()
+            };
+            
+            try {
+                localStorage.setItem(surveyCode, JSON.stringify(results));
+                
+                document.getElementById('surveyCode').textContent = surveyCode;
+                document.getElementById('saveModal').style.display = 'block';
+
+                document.getElementById('saveStatus').innerHTML = `
+                    <div>הטופס נשמר במכשירך בהצלחה. קוד הטופס: ${surveyCode}</div>
+                `;
+            } catch (error) {
+                document.getElementById('saveStatus').innerHTML = 'שגיאה בשמירת הטופס';
+            }
+        }
+
+        function closeSaveModal() {
+            document.getElementById('saveModal').style.display = 'none';
+        }
+
+        function loadSavedSurvey() {
+            const surveyCode = prompt('נא הזן את קוד הטופס השמור:');
+            if (surveyCode) {
+                const savedSurvey = localStorage.getItem(surveyCode);
+                if (savedSurvey) {
+                    const results = JSON.parse(savedSurvey);
+                    results.answers.forEach((answer, index) => {
+                        if (answer) {
+                            document.querySelector(`input[name="q${index}"][value="${answer}"]`).checked = true;
+                        }
+                    });
+                    updateProgress();
+                } else {
+                    alert('קוד טופס לא תקין או שלא נשמר');
+                }
+            }
+        }
+
+        function lockForm() {
+            const radioButtons = document.querySelectorAll('input[type="radio"]');
+            radioButtons.forEach(radio => {
+                radio.disabled = true;
+            });
+            document.getElementById('lockButton').disabled = true;
+            document.getElementById('saveButton').disabled = true;
+        }
+
+        function resetForm() {
+            const confirmReset = confirm(' לאפס את הטופס? כל הסימונים יימחקו.');
+            if (confirmReset) {
+                const radioButtons = document.querySelectorAll('input[type="radio"]');
+                radioButtons.forEach(radio => {
+                    radio.checked = false;
+                });
+                document.getElementById('results').innerHTML = '';
+                document.getElementById('saveStatus').innerHTML = '';
+                document.getElementById('progressBar').style.width = '0%';
+            }
+        }
+
+        function calculateResults() {
+            let countA = 0;
+            let countB = 0;
+            const totalQuestions = formData.length;
+            
+            formData.forEach((_, index) => {
+                const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                if (selected) {
+                    if (selected.value === "A") countA++;
+                    else countB++;
+                }
+            });
+            
+            const missing = totalQuestions - (countA + countB);
+            if (missing > 0) {
+                document.getElementById("results").innerHTML = `נא לבחור תגובה אחת בכל סעיף, חסרות ${missing} תגובות.`;
+                return;
+            }
+           
+            const diff = Math.abs(countA - countB);
+            let dominantType = "-";
+            if (countA > countB) dominantType = "המיספרה שמאלית - A";
+            if (countB > countA) dominantType = "המיספרה ימנית - B";
+
+           let resultCategory = "";
+            if (diff <= 24) {
+                resultCategory = "צידיות מתונה,  הסגנון הקוגניטיבי מעורב למדי ואין הבדל גדול באופן השימוש בשני צידי המוח. לא משנה איזה צד דומיננטי יותר,  סבירות נמוכה מאוד להמצאות תכונות אוטיסטיות";
+            } else if (diff >= 25 && diff <= 49){
+             resultCategory = countA > countB ? "צידיות מתונה,  מוח שמאלי דומיננטי,  הסבירות להעביר תכונות מאפיינות אוטיזם קצת יותר גבוהה מהקבוצה הקודמת אבל עדיין נמוכה יחסית." : "צידיות מתונה,  מוח ימני דומיננטי,   סבירות נמוכה מאוד להמצאות תכונות אוטיסטיות כלשהן.";
+            } else if (diff >= 50 && diff <= 74) {
+                resultCategory = countA > countB ?  "צידיות חזקה וסגנון קוגניטיבי של מוח שמאלי. סבירות גבוהה ללקות ולהעביר מאפיינים אוטיסטים." : "צידיות חזקה וסגנון קוגניטיבי של מוח ימני. סבירות נמוכה מאוד ללקות או להעביר מאפיינים אוטיסטים.";
+              } else if (diff >= 75) {
+                resultCategory = countA > countB ? "צידיות קיצונית וסגנון קוגניטיבי של מוח שמאלי. זו הסבירות הגבוהה ביותר ללקות או להעביר מאפיינים אוטיסטים לצאצאים." : "צידיות קיצונית וסגנון קוגניטיבי של מוח ימני מאוד. הסבירות למאפיינים אוטיסטים נמוכה ביותר.";
+             }
+
+
+            document.getElementById("results").innerHTML = `
+                <div>תוצאות :</div>
+                <div>סומנו ${countA} תגובות A</div>
+                <div>סומנו ${countB} תגובות B</div>
+                <div>דומיננטיות: ${dominantType}</div>
+                <div>תוצאה: ${countA > countB ? 'A' : 'B'}${diff}</div>
+                <div>משמעות התוצאה: ${resultCategory}</div>
+            `;
+        }
+
+        window.onload = loadQuestions;
+    </script>
+</body>
+</html>
