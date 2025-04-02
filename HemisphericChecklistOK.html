@@ -1,0 +1,458 @@
+﻿<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .category {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 2px solid #76A5AF;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .category-title {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #76A5AF;
+            font-size: 1.5em;
+        }
+        .sides-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .side {
+            flex: 1;
+            padding: 15px;
+            background-color: #f8fafa;
+            border-radius: 5px;
+            border: 1px solid #76A5AF40;
+        }
+        .side h3 {
+            text-align: center;
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #76A5AF;
+            color: #76A5AF;
+        }
+        .checkbox-group {
+            margin: 10px 0;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            margin: 10px 0;
+            gap: 8px;
+        }
+        .checkbox-item input[type="checkbox"] {
+            margin-top: 3px;
+        }
+        .item-content {
+            display: flex;
+            gap: 8px;
+            flex: 1;
+        }
+        .item-number {
+            min-width: 20px;
+            color: #76A5AF;
+            font-weight: bold;
+        }
+        .item-text {
+            flex: 1;
+        }
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+            width: 100%;
+            background-color: white;
+        }
+        th, td {
+            border: 1px solid #76A5AF;
+            padding: 12px 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #76A5AF;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f8fafa;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 25px;
+            background-color: #76A5AF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #638e97;
+        }
+        h1 {
+            color: #76A5AF;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    </style></head>
+<body>
+    <h1>רשימת מלילו לתיוג המיספריאלי</h1>
+    <form id="categoryForm">
+<div class="category">
+<!--מאפיינים תנועתיים -->
+<h2 class="category-title">מאפיינים תנועתיים </h2>
+<div class="sides-container"><div class="side"><h3>מאפיינים תנועתיים  ללקות בהמיספרה הימנית</h3><div class="checkbox-group">
+
+<div class="checkbox-item"><input type="checkbox" name="cat1_a_1"><div class="item-content"><span class="item-number">1.</span><span class="item-text">קואורדינציה לקויה. מגושמות, יציבה והליכה מוזרים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat1_a_2"><div class="item-content"><span class="item-number">2.</span><span class="item-text">קושי בפעולות בהן נדרש תיאום בין שני צידי הגוף כגון ריצה; הליכה או שחייה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat1_a_3"><div class="item-content"><span class="item-number">3.</span><span class="item-text">טונוס שרירים נמוך; שרירים רפויים מדיי.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat1_a_4"><div class="item-content"><span class="item-number">4.</span><span class="item-text">גמישות גבוהה ואף גמישות יתר.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat1_a_5"><div class="item-content"><span class="item-number">5.</span><span class="item-text">טיקים או קולות חוזרים ולא רצוניים כגון ניקוי הגרון.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat1_a_6"><div class="item-content"><span class="item-number">6.</span><span class="item-text">גינונים תנועתיים חזרתיים, כגון פיתול או משחק בשיער או משיכת שרוולים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat1_a_7"><div class="item-content"><span class="item-number">7.</span><span class="item-text">נטייה ללכת על הבהונות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat1_a_8"><div class="item-content"><span class="item-number">8.</span><span class="item-text">שיווי משקל לקוי או החמיר לאחרונה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat1_a_9"><div class="item-content"><span class="item-number">9.</span><span class="item-text">דלקת גידים כרונית בפיקת הברך; תסמונת התעלה הקרפלית; מסובבי הכתף או מרפק בצד ימין של הגוף.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat1_a_10"><div class="item-content"><span class="item-number">10.</span><span class="item-text">רעד או עווית בצד ימין של הגוף.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat1_a_11"><div class="item-content"><span class="item-number">11.</span><span class="item-text">חוסר יכולת לפזול.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat1_a_12"><div class="item-content"><span class="item-number">12.</span><span class="item-text">תפיסת עומק ירודה -  קושי לשפוט מרחקים ו/או קושי בנהיגה.</span></div></div>
+</div></div>
+<div class="side"><h3>מאפיינים תנועתיים  ללקות בהמיספרה השמאלית </h3><div class="checkbox-group">
+
+<div class="checkbox-item"><input type="checkbox" name="cat1_b_1"><div class="item-content"><span class="item-number">1.</span><span class="item-text">קושי בביצוע מיומנויות מוטוריות עדינות כגון כיפתור חולצה ועבודת ידיים עדינה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat1_b_2"><div class="item-content"><span class="item-number">2.</span><span class="item-text">כתב יד גרוע קשה לקריאה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat1_b_3"><div class="item-content"><span class="item-number">3.</span><span class="item-text">קושי בתכנון רצף של תנועות מתואמות, כגון צעדי ריקוד או פעילויות ספורט מסוימות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat1_b_4"><div class="item-content"><span class="item-number">4.</span><span class="item-text">עווית בעין ימין אך לא שמאל.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat1_b_5"><div class="item-content"><span class="item-number">5.</span><span class="item-text">התכווצות היד כתוצאה מכתיבה לעיתים קרובות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat1_b_6"><div class="item-content"><span class="item-number">6.</span><span class="item-text">קושי בדיבור שוטף וחלק כשעייפים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat1_b_7"><div class="item-content"><span class="item-number">7.</span><span class="item-text">נטול נטיה מוזיקלית. לדוגמה, מתקשה לנגן בכלי נגינה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat1_b_8"><div class="item-content"><span class="item-number">8.</span><span class="item-text">דלקות גידים כרונית, בפיקת הברך, תסמונת התעלה הקרפלית. או שהיו בעיות במסובב הכתף או מרפק בצד שמאל של הגוף.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat1_b_9"><div class="item-content"><span class="item-number">9.</span><span class="item-text">רעידות בצד ימין של הגוף.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat1_b_10"><div class="item-content"><span class="item-number">10.</span><span class="item-text">קושי בחיקוי פעולה מבלי לעשות אותה בפועל. לדוגמא, אי יכולת לחקות כיצד להדליק גפרור מבלי לאחוז בחבילת גפרורים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat1_b_11"><div class="item-content"><span class="item-number">11.</span><span class="item-text">דו -ידיות (ambidextrous) - אין העדפת צד בשימוש ביד שמאל או יד ימין</span></div></div>
+</div></div></div></div>
+<!--מאפיינים תחושתיים-->
+<h2 class="category-title">מאפיינים תחושתיים</h2>
+<div class="sides-container"><div class="side"><h3>מאפיינים תחושתיים ללקות בהמיספרה הימנית</h3><div class="checkbox-group">
+
+<div class="checkbox-item"><input type="checkbox" name="cat2_a_1"><div class="item-content"><span class="item-number">1.</span><span class="item-text">אוריינטציה מרחבית לקויה, למשל, התקלות בדברים לעתים קרובות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat2_a_2"><div class="item-content"><span class="item-number">2.</span><span class="item-text">רגישות לקול. לדוגמה, שונאים רעשים חזקים כמו זיקוקים, ומוטרדים במיוחד מצלילים גבוהים כמו צעקות או גירוד על לוח עם גיר.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat2_a_3"><div class="item-content"><span class="item-number">3.</span><span class="item-text">בדרך כלל, תחושת ניתוק מהגוף.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat2_a_4"><div class="item-content"><span class="item-number">4.</span><span class="item-text">נגיעה כפייתית בדברים. כמו נגיעה בבגדים במעבר בחנות, למרות חוסר עניין בקניה או שפשוף הידיים על רהיטים ללא סיבה בסביבה חדשה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat2_a_5"><div class="item-content"><span class="item-number">5.</span><span class="item-text">תחושת המגע של בגדים על הידיים או הרגליים מטרידה. למשל, נטיה להתפשטות בכל הזדמנות אפשרית.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat2_a_6"><div class="item-content"><span class="item-number">6.</span><span class="item-text">מוטרדים מנגיעה או כניסה למרחב האישי על ידי אחרים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat2_a_7"><div class="item-content"><span class="item-number">7.</span><span class="item-text">חוש ריח לקוי. לדוגמה, לא מבחינים בגל הריח באזור שריפה, פופקורן בהכנה או עוגיות באפיה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat2_a_8"><div class="item-content"><span class="item-number">8.</span><span class="item-text">חוסר יכולת לזהות או להבדיל בין צלילים או תווים מוזיקליים. בעל "tin ear" (חוסר רגישות להבדלים מוזיקליים), זייפן.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat2_a_9"><div class="item-content"><span class="item-number">9.</span><span class="item-text">שמיעת קולות שלא נשמעים בפועל או טינטון באוזן ימין.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat2_a_10"><div class="item-content"><span class="item-number">10.</span><span class="item-text">הבחנה בריחות יוצאי דופן שאחרים אינם מריחים או שלא קיימים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat2_a_11"><div class="item-content"><span class="item-number">11.</span><span class="item-text">טעם מתכתי או לא נעים בפה ללא סיבה ברורה, בדומה לתופעת לוואי לנטילת תרופות מסוימות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat2_a_12"><div class="item-content"><span class="item-number">12.</span><span class="item-text">אובססיביות לדת או להבנת משמעות החיים מעבר לנחשב נורמלי וציטוט פסוקים כמעט בכל שיחה או בפוסטים במדיה חברתית.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat2_a_13"><div class="item-content"><span class="item-number">13.</span><span class="item-text">הפסקות בלתי מוסברות בקשר עם הסביבה ללא איבוד הכרה, אך ללא זיכרון של תקופות זמן מסוימות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat2_a_14"><div class="item-content"><span class="item-number">14.</span><span class="item-text">העין הימנית מגורה באופן כרוני, יבשה או אדומה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat2_a_15"><div class="item-content"><span class="item-number">15.</span><span class="item-text">השמיעה באוזן שמאל פחות טובה מאשר בימין.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat2_a_16"><div class="item-content"><span class="item-number">16.</span><span class="item-text">תפיסת זמן או הערכת זמן גרועה, כלומר המעטה או הערכת יתר לגבי אורך הזמן לביצוע משימה.</span></div></div>
+</div></div>
+<div class="side"><h3>מאפיינים תחושתיים ללקות בהמיספרה השמאלית </h3><div class="checkbox-group">
+
+<div class="checkbox-item"><input type="checkbox" name="cat2_b_1"><div class="item-content"><span class="item-number">1.</span><span class="item-text">צריך לחשוב פעמיים כדי להבחין בין שמאל לימין.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat2_b_2"><div class="item-content"><span class="item-number">2.</span><span class="item-text">תחושה שהשמיעה לקויה, למרות בדיקות שמיעה תקינות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat2_b_3"><div class="item-content"><span class="item-number">3.</span><span class="item-text">נטיה לבחילה / מחלת ים בעת נסיעה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat2_b_4"><div class="item-content"><span class="item-number">4.</span><span class="item-text">רגישות גבוהה לתנועה, למשל, אי יכולת לקרוא תוך כדי נסיעה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat2_b_5"><div class="item-content"><span class="item-number">5.</span><span class="item-text">דברים קטנים ביותר כגון מראה דם או ריחות לא נעימים מסוימים יכולים לגרום לבחילה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat2_b_6"><div class="item-content"><span class="item-number">6.</span><span class="item-text">תחושה שהשמיעה באוזן הימינית אינה טובה כמו באוזן השמאלית</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat2_b_7"><div class="item-content"><span class="item-number">7.</span><span class="item-text">העין השמאלית מגורה באופן כרוני, יבשה או אדומה.</span></div></div>
+</div></div></div></div>
+<!--מאפיינים רגשיים-->
+<h2 class="category-title">מאפיינים רגשיים</h2>
+<div class="sides-container"><div class="side"><h3>מאפיינים רגשיים ללקות בהמיספרה הימנית</h3><div class="checkbox-group">
+
+<div class="checkbox-item"><input type="checkbox" name="cat3_a_1"><div class="item-content"><span class="item-number">1.</span><span class="item-text">מאושרים מדי ומלאי חיבה. לדוגמה, אוהבים לחבק ולנשק אחרים: ילדים, חברים ואת חיות המחמד.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_a_2"><div class="item-content"><span class="item-number">2.</span><span class="item-text">התנהגות 'מאנית': פריצה בבכי או בצחוק כמעט באופן ספונטני.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_a_3"><div class="item-content"><span class="item-number">3.</span><span class="item-text">התפרצויות פתאומיות של כעס או פחד.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_a_4"><div class="item-content"><span class="item-number">4.</span><span class="item-text">מדי פעם חווים פאניקה ו/או התקפי חרדה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_a_5"><div class="item-content"><span class="item-number">5.</span><span class="item-text">מחשבות אפלות או אלימות לפעמים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_a_6"><div class="item-content"><span class="item-number">6.</span><span class="item-text">היאחזות במכאובי העבר. מבלי יכולת פשוט להרפות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_a_7"><div class="item-content"><span class="item-number">7.</span><span class="item-text">בדרך כלל, פנים חסרות הבעה, הפגנת שפת גוף מועטה בעת אינטראקציה עם אחרים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_a_8"><div class="item-content"><span class="item-number">8.</span><span class="item-text">עצבנות ומתח ללא יכולת להשתחרר.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_a_9"><div class="item-content"><span class="item-number">9.</span><span class="item-text">לא מאוד אמפתים או לא נראה אמפטים לאחרים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_a_10"><div class="item-content"><span class="item-number">10.</span><span class="item-text">הפגנת רגשות מרוסנת שלא כמו אחרים במצבים שונים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_a_11"><div class="item-content"><span class="item-number">11.</span><span class="item-text">אוהבים לקחת סיכונים וידועים כלוקחי סיכונים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_a_12"><div class="item-content"><span class="item-number">12.</span><span class="item-text">דיבור מונוטוני ללא הבעה בדרך כלל.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_a_13"><div class="item-content"><span class="item-number">13.</span><span class="item-text">לא אוהבים להיות במצבים חברתיים. ומכונים אנטי-חברתי.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_a_14"><div class="item-content"><span class="item-number">14.</span><span class="item-text">בדרך כלל לא מרגישים "מפוחדים" או שלא נראה שחווים פחד.</span></div></div>
+</div></div>
+<div class="side"><h3>מאפיינים רגשיים ללקות בהמיספרה השמאלית </h3><div class="checkbox-group">
+
+<div class="checkbox-item"><input type="checkbox" name="cat3_b_1"><div class="item-content"><span class="item-number">1.</span><span class="item-text">נבהלים וניתנים להפחדה בקלות רבה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_b_2"><div class="item-content"><span class="item-number">2.</span><span class="item-text">לעיתים קרובות נכנסים לדיכאון או מרגישים "בזבל'.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_b_3"><div class="item-content"><span class="item-number">3.</span><span class="item-text">דאגנות יתר ונחשבים לדאגנים על ידי הסובבים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_b_4"><div class="item-content"><span class="item-number">4.</span><span class="item-text">תחושת הפרעת דחק פוסט טראומטית או שיש בפועל הפרעה כזו.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_b_5"><div class="item-content"><span class="item-number">5.</span><span class="item-text">פחדים ו/או פוביות לרוב.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_b_6"><div class="item-content"><span class="item-number">6.</span><span class="item-text">חווים מצב רוח רע ועצבנות לעיתים קרובות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_b_7"><div class="item-content"><span class="item-number">7.</span><span class="item-text">מחשבות אובדניות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_b_8"><div class="item-content"><span class="item-number">8.</span><span class="item-text">חוסר מוטיבציה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_b_9"><div class="item-content"><span class="item-number">9.</span><span class="item-text">חוסר הנאה ממנעמי החיים, מאכלים או משהו מסוים אחר.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_b_10"><div class="item-content"><span class="item-number">10.</span><span class="item-text">אחרים יטענו שקשה לשמח אתכם.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_b_11"><div class="item-content"><span class="item-number">11.</span><span class="item-text">נעלבים בקלות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_b_12"><div class="item-content"><span class="item-number">12.</span><span class="item-text">מוצפים (overwhelmed) מהמשימות שעל הפרק ומהמתרחש סביב לעתים קרובות .</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_b_13"><div class="item-content"><span class="item-number">13.</span><span class="item-text">יכולת להרגיש את הכאב והייאוש של אחר יותר מהאדם הממוצע.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_b_14"><div class="item-content"><span class="item-number">14.</span><span class="item-text">בדרך כלל פסימים. אחרים יקראו לכם שליליים ביותר.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_b_15"><div class="item-content"><span class="item-number">15.</span><span class="item-text">זהירים יתר על המידה ולא לוקחים סיכונים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_b_16"><div class="item-content"><span class="item-number">16.</span><span class="item-text">הרגשת אי נוחות במצבים חברתיים. למרות הרצון להיות חברותי, לא תמיד בטוחים איך להתנהג.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_b_17"><div class="item-content"><span class="item-number">17.</span><span class="item-text">הרגשות נפגעים בקלות עד בכי.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_b_18"><div class="item-content"><span class="item-number">18.</span><span class="item-text">לפעמים תחושות של חוסר תקווה או חוסר טעם בחיים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_b_19"><div class="item-content"><span class="item-number">19.</span><span class="item-text">רגישות גבוהה למה שאחרים חושבים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_b_20"><div class="item-content"><span class="item-number">20.</span><span class="item-text">יתר מודעות עצמית, יכולים להיחשב פרנואידים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_b_21"><div class="item-content"><span class="item-number">21.</span><span class="item-text">לעתים קרובות חושבים שאחרים צוחקים עליכם מאחורי הגב.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat3_b_22"><div class="item-content"><span class="item-number">22.</span><span class="item-text">זיכרונות קשים אינם מרפים, במיוחד פגיעה רגשית או השפלה.</span></div></div>
+</div></div></div></div>
+<!--מאפיינים התנהגותיים-->
+<h2 class="category-title">מאפיינים התנהגותיים</h2>
+<div class="sides-container"><div class="side"><h3>מאפיינים התנהגותיים ללקות בהמיספרה הימנית</h3><div class="checkbox-group">
+
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_1"><div class="item-content"><span class="item-number">1.</span><span class="item-text">קושי לעקוב אחר הכללים של תקשורת טובה. אמירת דברים לא הולמים, לא בעיתוי נכון וללא אקספרסיביות מתאימה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_2"><div class="item-content"><span class="item-number">2.</span><span class="item-text">קושי להישאר ממוקד במשימה העומדת על הפרק או מרוכז בנאמר או נעשה סביב במשך יותר מכמה דקות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_3"><div class="item-content"><span class="item-number">3.</span><span class="item-text">הייתה אבחנה או שההתנהגות תואמת ADHD.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_4"><div class="item-content"><span class="item-number">4.</span><span class="item-text">אובססיביות כמעט על כל דבר. הייתה אבחנה או שלעתים קרובות ההתנהגות מתאימה להפרעה אובססיבית כפייתית (OCD).</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_5"><div class="item-content"><span class="item-number">5.</span><span class="item-text">התנהגות מאנית-דיפרסיבית עד כדי חשד להפרעה דו קוטבית או שהייתה אבחנה להפרעה זו.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_6"><div class="item-content"><span class="item-number">6.</span><span class="item-text">לעיתים קרובות – חוויית ארוע חוזר תחושת déjà vu.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_7"><div class="item-content"><span class="item-number">7.</span><span class="item-text">לעתים קרובות "מתפספסת" הנקודה העיקרית בסיפור.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_8"><div class="item-content"><span class="item-number">8.</span><span class="item-text">היתקעות בהתנהגות מסוימת מבלי יכולת לשחרר. לדוגמה, קושי לעבור למחשבה, פעולה או רעיון חדשים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_9"><div class="item-content"><span class="item-number">9.</span><span class="item-text">אף פעם אין תחושת אשמה או חרטה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_10"><div class="item-content"><span class="item-number">10.</span><span class="item-text">חוסר טקט חברתי ותחושת בידוד חברתית.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_11"><div class="item-content"><span class="item-number">11.</span><span class="item-text">ניהול זמן לקוי, הגעה באיחור באופן קבוע.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_12"><div class="item-content"><span class="item-number">12.</span><span class="item-text">אובססיביות לסדר וקושי לשאת סביבה לא מסודר ומאורגנת.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_13"><div class="item-content"><span class="item-number">13.</span><span class="item-text">אימפולסיביות כפייתית והיפראקטיביות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_14"><div class="item-content"><span class="item-number">14.</span><span class="item-text">קושי להרדם, המוח עסוק מאוד</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_15"><div class="item-content"><span class="item-number">15.</span><span class="item-text">קושי להיפרד מחפצים עד אגרנות</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_16"><div class="item-content"><span class="item-number">16.</span><span class="item-text">הפגנת חוסר שיתוף פעולה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_17"><div class="item-content"><span class="item-number">17.</span><span class="item-text">הרגלי אכילה קיצוניים, יתכן עד כדי הפרעת אכילה, במיוחד בולימיה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_18"><div class="item-content"><span class="item-number">18.</span><span class="item-text">לעיתים קרובות מצטיירים כ- משועממים, מרוחקים ומנותקים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_19"><div class="item-content"><span class="item-number">19.</span><span class="item-text">נחשבים מוזרים על ידי אחרים או שנחשבתם מוזרים כילדים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_20"><div class="item-content"><span class="item-number">20.</span><span class="item-text">מעט חברים, ונראה שחבריות חדשות מתמסמסות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_21"><div class="item-content"><span class="item-number">21.</span><span class="item-text">אין הנאה גדולה בלהיות בחברת אחרים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_22"><div class="item-content"><span class="item-number">22.</span><span class="item-text">התנהגות מטופשת או אווילית שאינה הולמת את הנסיבות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_23"><div class="item-content"><span class="item-number">23.</span><span class="item-text">דיבור ללא הרף נחשב "דברן".</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_24"><div class="item-content"><span class="item-number">24.</span><span class="item-text">נטיה לשאלות חוזרות ונשנות, דיבור סחור סחור, אך לא ממש להגיע לעניין.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_25"><div class="item-content"><span class="item-number">25.</span><span class="item-text">אופנה ומגמות חברתיות אינן מעניינות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_26"><div class="item-content"><span class="item-number">26.</span><span class="item-text">תסרוקת קבועה מזה שנים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_a_27"><div class="item-content"><span class="item-number">27.</span><span class="item-text">מתוארים כ- "חולי שליטה".</span></div></div>
+</div></div>
+<div class="side"><h3>מאפיינים התנהגותיים ללקות בהמיספרה השמאלית </h3><div class="checkbox-group">
+
+<div class="checkbox-item"><input type="checkbox" name="cat4_b_1"><div class="item-content"><span class="item-number">1.</span><span class="item-text">נטיה להתעלם מחוקים ותקנות. לדוגמה, מקבלים דוחות חניה ומהירות מופרזת רבים במיוחד.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_b_2"><div class="item-content"><span class="item-number">2.</span><span class="item-text">נטייה להגזים ו/או לשקר.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_b_3"><div class="item-content"><span class="item-number">3.</span><span class="item-text">עלולים לחוש בושה קשה או אשמה משתקת, גם כשלא עשיתם שום דבר חמור באמת.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_b_4"><div class="item-content"><span class="item-number">4.</span><span class="item-text">לעתים קרובות יש תחושה מבשרת רעות או תחושת בטן רעה ללא סיבה ברורה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_b_5"><div class="item-content"><span class="item-number">5.</span><span class="item-text">נטיה לדחיינות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_b_6"><div class="item-content"><span class="item-number">6.</span><span class="item-text">ביישנים מאוד, במיוחד בסביבת זרים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_b_7"><div class="item-content"><span class="item-number">7.</span><span class="item-text">נטייה לגמגום.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_b_8"><div class="item-content"><span class="item-number">8.</span><span class="item-text">הערכה עצמית ירודה. תחושה פנימית של "מפסידנות", גם בעיני אחרים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_b_9"><div class="item-content"><span class="item-number">9.</span><span class="item-text">תסביך נחיתות. לא מרגישים שאתם חכמים כמו אחרים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_b_10"><div class="item-content"><span class="item-number">10.</span><span class="item-text">התעסקות עם ניירת או תשלום חשבונות אינם חביבים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_b_11"><div class="item-content"><span class="item-number">11.</span><span class="item-text">לא חזקים בשמירה על שגרה וביסוס הרגלים</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_b_12"><div class="item-content"><span class="item-number">12.</span><span class="item-text">מעקב אחר הוראות רבות שלבים מתסכלת מביכה ומטרידה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_b_13"><div class="item-content"><span class="item-number">13.</span><span class="item-text">נטיה להסיק מסקנות מהר מדי.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_b_14"><div class="item-content"><span class="item-number">14.</span><span class="item-text">טעויות בשל אי קריאה או מעקב אחר הוראות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_b_15"><div class="item-content"><span class="item-number">15.</span><span class="item-text">נטיה לחוסר סדר קיצוני.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_b_16"><div class="item-content"><span class="item-number">16.</span><span class="item-text">לרדוף אחר מגמות אופנה וטרנדים ולהשמע לצוי האופנה העדכניים ביותר.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_b_17"><div class="item-content"><span class="item-number">17.</span><span class="item-text">בבית הספר הייתם משועממים ו/או שנאתם להכין שיעורי הבית.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_b_18"><div class="item-content"><span class="item-number">18.</span><span class="item-text">העדפה להיות בחברה ולא להיות לבד.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_b_19"><div class="item-content"><span class="item-number">19.</span><span class="item-text">נטיה לחלום בהקיץ ולהיסחף במחשבות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_b_20"><div class="item-content"><span class="item-number">20.</span><span class="item-text">קושי לעסוק בדבר אחד בלבד</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_b_21"><div class="item-content"><span class="item-number">21.</span><span class="item-text">הפסקת פעילות או מחשבה אחת והתחלת אחרת לפני סיום הראשונה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat4_b_22"><div class="item-content"><span class="item-number">22.</span><span class="item-text">נטיה להתמכרויות. לדוגמה, סמים, אלכוהול, סיגריות, הימורים, סקס וכו'.</span></div></div>
+</div></div></div></div>
+<!--מאפיינים קוגניטיביים-->
+<h2 class="category-title">מאפיינים קוגניטיביים</h2>
+<div class="sides-container"><div class="side"><h3>מאפיינים קוגניטיביים ללקות בהמיספרה הימנית</h3><div class="checkbox-group">
+
+<div class="checkbox-item"><input type="checkbox" name="cat5_a_1"><div class="item-content"><span class="item-number">1.</span><span class="item-text">קושי להיזכר בתאריך, בשעה או במקום של אירועים חשובים. לא רק ימי הולדת וימי נישואין, לפעמים יש צורך להתאמץ כדי ללזכור את גילך.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_a_2"><div class="item-content"><span class="item-number">2.</span><span class="item-text">קושי להישאר מרוכז בנושא במהלך שיחה או בפגישה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_a_3"><div class="item-content"><span class="item-number">3.</span><span class="item-text">קושי לחזור על סיפור כפי שסופר או להסביר הוראות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_a_4"><div class="item-content"><span class="item-number">4.</span><span class="item-text">נטייה לצאת מהכלים למטרדים נפוצים, כמו כיור שעלה על גדותיו או התחממות עודפת של מנוע המכונית.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_a_5"><div class="item-content"><span class="item-number">5.</span><span class="item-text">קושי לפרש שפה מופשטת. לדוגמה, לא מבין בדיחה או מטאפורה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_a_6"><div class="item-content"><span class="item-number">6.</span><span class="item-text">קושי לדמיין סיבוב חפץ בחלל. לדוגמה, קושי לדמיין איך רהיטים יראו במיקום אחר בחדר.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_a_7"><div class="item-content"><span class="item-number">7.</span><span class="item-text">אי יכולת לזהות פרצופים של אנשים מוכרים שלא ראית שנים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_a_8"><div class="item-content"><span class="item-number">8.</span><span class="item-text">זיכרונות דלים מהילדות .</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_a_9"><div class="item-content"><span class="item-number">9.</span><span class="item-text">חוש כיוון גרוע.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_a_10"><div class="item-content"><span class="item-number">10.</span><span class="item-text">קושי בהבנה ושימוש ברמיזות הקשרים והשלכותיהם. לדוגמא, אי הבנת רמזים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_a_11"><div class="item-content"><span class="item-number">11.</span><span class="item-text">אי הבנת אירוניה וציניות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_a_12"><div class="item-content"><span class="item-number">12.</span><span class="item-text">מוסר ההשכל בסיפור או הנקודה העיקרית אינה "נתפסת".</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_a_13"><div class="item-content"><span class="item-number">13.</span><span class="item-text">קושי בקבלת החלטות בשל התמקדות בפרטים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_a_14"><div class="item-content"><span class="item-number">14.</span><span class="item-text">ניתוח יתר של כל דבר מקשה על קבלת החלטות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_a_15"><div class="item-content"><span class="item-number">15.</span><span class="item-text">עניין אובססיבי בנושאים יוצאי דופן כמו רכבות, סלעים, בולים, חוברות קומיקס וכדומה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_a_16"><div class="item-content"><span class="item-number">16.</span><span class="item-text">לעתים קרובות, גילוי חוסר סבלנות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_a_17"><div class="item-content"><span class="item-number">17.</span><span class="item-text">ביטוי מחשבות ודעות בקול.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_a_18"><div class="item-content"><span class="item-number">18.</span><span class="item-text"> קרבה יתרה לבני השיח – פלישה למרחב האישי.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_a_19"><div class="item-content"><span class="item-number">19.</span><span class="item-text">ישירות מוגזמת עד גסות רוח.</span></div></div>
+</div></div>
+<div class="side"><h3>מאפיינים קוגניטיביים ללקות בהמיספרה השמאלית </h3><div class="checkbox-group">
+
+<div class="checkbox-item"><input type="checkbox" name="cat5_b_1"><div class="item-content"><span class="item-number">1.</span><span class="item-text">זיכרון חלש לפרטים כגון שמות רחובות או תאריכים חשובים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_b_2"><div class="item-content"><span class="item-number">2.</span><span class="item-text">צבעים נראים עמומים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_b_3"><div class="item-content"><span class="item-number">3.</span><span class="item-text">קושי בזיכרון לשמות ומספרי טלפון.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_b_4"><div class="item-content"><span class="item-number">4.</span><span class="item-text">קושי בלימוד על ידי קריאה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_b_5"><div class="item-content"><span class="item-number">5.</span><span class="item-text">קושי להוציא לפועל תוכנית/לעקוב אחר הוראות, כגון מתכון או בניית מודל.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_b_6"><div class="item-content"><span class="item-number">6.</span><span class="item-text">כישורים אנליטיים ירודים. לדוגמה, חוסר יכולת לחשוב בהיגיון במצב מלחיץ או לנתח את הסיכויים שלך לנצח או להפסיד במשחק.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_b_7"><div class="item-content"><span class="item-number">7.</span><span class="item-text">חוסר תחושה של זמן. נטיה לאחר.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_b_8"><div class="item-content"><span class="item-number">8.</span><span class="item-text">קושי לתעדף משימות. לדוגמה, קושי לדעת מה לעשות קודם, או מה הכי חשוב.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_b_9"><div class="item-content"><span class="item-number">9.</span><span class="item-text">לא סביר שתעיין בהוראות לפני ביצוע משהו חדש.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_b_10"><div class="item-content"><span class="item-number">10.</span><span class="item-text">נטייה לפספס מילים קטנות (2 – 3 אותיות) בעת קריאה או להשמיטן בכתיבה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_b_11"><div class="item-content"><span class="item-number">11.</span><span class="item-text">קושי ללמוד חומר חדש, והקריאה איטית מדי ומייגעת.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_b_12"><div class="item-content"><span class="item-number">12.</span><span class="item-text">שמות ומילים נתקעים על קצה הלשון.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_b_13"><div class="item-content"><span class="item-number">13.</span><span class="item-text">ללמידת מושגים חדשים נדרשת חזרה רבה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_b_14"><div class="item-content"><span class="item-number">14.</span><span class="item-text">תחושה של דיסלקטיות או הייתה אבחנה כזאת.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_b_15"><div class="item-content"><span class="item-number">15.</span><span class="item-text">ציונים בבית הספר נטו להתדרדר במקום להשתפר.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_b_16"><div class="item-content"><span class="item-number">16.</span><span class="item-text">חינוך מיוחד בבית ספר יסודי או בתיכון .</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_b_17"><div class="item-content"><span class="item-number">17.</span><span class="item-text">תחושת כישלון במתמטיקה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_b_18"><div class="item-content"><span class="item-number">18.</span><span class="item-text">גרועים באיות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_b_19"><div class="item-content"><span class="item-number">19.</span><span class="item-text">קושי בכתיבה נכונה מבחינה דקדוקית.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_b_20"><div class="item-content"><span class="item-number">20.</span><span class="item-text">קושי בשימוש בשפה זרה שנלמדה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_b_21"><div class="item-content"><span class="item-number">21.</span><span class="item-text">קושי או חוסר יכולת לתאר אופי מערכות יחסים אישיות במונחים רגשיים, כגון מערכת היחסים עם אמך כשגדלת.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat5_b_22"><div class="item-content"><span class="item-number">22.</span><span class="item-text">לא זכורים פרטים על הילדות, כגון כתובות, מספרי טלפון או שמות המורים.</span></div></div>
+</div></div></div></div>
+<!--מאפיינים חיסוניים-->
+<h2 class="category-title">מאפיינים חיסוניים</h2>
+<div class="sides-container"><div class="side"><h3>מאפיינים חיסוניים ללקות בהמיספרה הימנית</h3><div class="checkbox-group">
+
+<div class="checkbox-item"><input type="checkbox" name="cat6_a_1"><div class="item-content"><span class="item-number">1.</span><span class="item-text">אלרגיות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat6_a_2"><div class="item-content"><span class="item-number">2.</span><span class="item-text">רגישות לחומרי מזון כגון קזאין (חלבון במוצרי חלב) או גלוטן (חלבון בחיטה).</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat6_a_3"><div class="item-content"><span class="item-number">3.</span><span class="item-text">הפרעה אוטואימונית, כגון אסטמה, אקזמה, זאבת, פסוריאזיס, או דלקת מפרקים שגרונית.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat6_a_4"><div class="item-content"><span class="item-number">4.</span><span class="item-text">יותר מהפרעה אוטואימונית אחת.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat6_a_5"><div class="item-content"><span class="item-number">5.</span><span class="item-text">בליטות לבנות קטנות על העור, במיוחד בגב הזרועות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat6_a_6"><div class="item-content"><span class="item-number">6.</span><span class="item-text">משתוקקים למזונות מסוימים, במיוחד מוצרי חלב וחיטה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat6_a_7"><div class="item-content"><span class="item-number">7.</span><span class="item-text">אובחן תפקוד נמוך של בלוטת התריס.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat6_a_8"><div class="item-content"><span class="item-number">8.</span><span class="item-text">תחושת שיכורות או חוסר איזון לאחר אכילת מזונות מסוימים.</span></div></div>
+</div></div>
+<div class="side"><h3>מאפיינים חיסוניים ללקות בהמיספרה השמאלית </h3><div class="checkbox-group">
+
+<div class="checkbox-item"><input type="checkbox" name="cat6_b_1"><div class="item-content"><span class="item-number">1.</span><span class="item-text">דלקות כרוניות, באוזניים גרון, או דרכי הנשימה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat6_b_2"><div class="item-content"><span class="item-number">2.</span><span class="item-text">נטיה לגידולים ו/או ציסטות או שיש גידול סרטני.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat6_b_3"><div class="item-content"><span class="item-number">3.</span><span class="item-text">נטילת אנטיביוטיקה או תרופות אנטי ויראליות לעתים קרובות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat6_b_4"><div class="item-content"><span class="item-number">4.</span><span class="item-text">הצטננויות רבות, יותר משתיים בשנה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat6_b_5"><div class="item-content"><span class="item-number">5.</span><span class="item-text">זמן החלמה ארוך לאחר מחלה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat6_b_6"><div class="item-content"><span class="item-number">6.</span><span class="item-text">תחושה שיש צורך בחיסון שפעת כל שנה אחרת תחלה. לעיתים, למרות החיסון תחלה בשפעת.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat6_b_7"><div class="item-content"><span class="item-number">7.</span><span class="item-text">בעיית שמרים או זיהומים פטרייתיים כרוניים ו/או אבחנה עם קנדידיטיס או פטרת הפה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat6_b_8"><div class="item-content"><span class="item-number">8.</span><span class="item-text">כיבים בקיבה.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat6_b_9"><div class="item-content"><span class="item-number">9.</span><span class="item-text">דלקת ריאות בשבע השנים האחרונות.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat6_b_10"><div class="item-content"><span class="item-number">10.</span><span class="item-text">התפרצויות ויראליות חוזרות ונשנות, כגון הרפס או שלבקת חוגרת.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat6_b_11"><div class="item-content"><span class="item-number">11.</span><span class="item-text">הייתה או עדיין יש מחלת ליים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat6_b_12"><div class="item-content"><span class="item-number">12.</span><span class="item-text">השקדים והאדנואידים הוסרו בשל זיהומים כרוניים.</span></div></div>
+</div></div></div></div>
+<!--מאפיינים מטבולים-->
+<h2 class="category-title">מאפיינים מטבולים</h2>
+<div class="sides-container"><div class="side"><h3>מאפיינים מטבולים ללקות בהמיספרה הימנית</h3><div class="checkbox-group">
+
+<div class="checkbox-item"><input type="checkbox" name="cat7_a_1"><div class="item-content"><span class="item-number">1.</span><span class="item-text">בעיות מעיים תכופות עם עצירות ו/או שלשולים.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat7_a_2"><div class="item-content"><span class="item-number">2.</span><span class="item-text">קצב לב מהיר או עלייה פתאומית בקצב הלב (טכיקרדיה, מעל 90 פעימות לב לדקה).</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat7_a_3"><div class="item-content"><span class="item-number">3.</span><span class="item-text">לחץ הדם הנמדד בזרוע ימין גבוה ב- 10 נקודות או יותר מלחץ הדם הנמדד בזרוע שמאל.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat7_a_4"><div class="item-content"><span class="item-number">4.</span><span class="item-text">הזעה מרובה יותר בצד ימין מאשר בצד שמאל של הגוף.</span></div></div>
+</div></div>
+<div class="side"><h3>מאפיינים מטבולים ללקות בהמיספרה השמאלית </h3><div class="checkbox-group">
+
+<div class="checkbox-item"><input type="checkbox" name="cat7_b_1"><div class="item-content"><span class="item-number">1.</span><span class="item-text">לחץ דם הנמדד בזרוע שמאל גבוה ב- 10 נקודות או יותר מלחץ הדם הנמדד בזרוע ימין.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat7_b_2"><div class="item-content"><span class="item-number">2.</span><span class="item-text">הזעה מרובה יותר בצד שמאל מאשר בצד ימין של הגוף.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat7_b_3"><div class="item-content"><span class="item-number">3.</span><span class="item-text">חריגה בפעימות לב, כגון הפרעות קצב או רשרוש לב.</span></div></div>
+<div class="checkbox-item"><input type="checkbox" name="cat7_b_4"><div class="item-content"><span class="item-number">4.</span><span class="item-text">זרימת דם חלשה יותר ביד שמאל. יד שמאל מתחממת לאט יותר לאחר חשיפה לקור.</span></div></div>
+</div></div></div></div>
+  </form><button onclick="calculateTotals()">חשב תוצאות</button>
+
+    <table id="resultsTable">
+        <tr>
+            <th>מאפיינים</th>
+            <th>מאפייני לקות בהמיספרה הימנית</th>
+            <th>מאפייני לקות בהמיספרה השמאלית</th>
+            <th>סה"כ מאפיינים</th>
+        </tr>
+
+ <tr>
+<td>מאפיינים תנועתיים </td>
+<td id="cat1_a">0</td>
+<td id="cat1_b">0</td>
+<td id="cat1_total">0</td>
+        </tr>
+ <tr>
+<td>מאפיינים תחושתיים</td>
+<td id="cat2_a">0</td>
+<td id="cat2_b">0</td>
+<td id="cat2_total">0</td>
+        </tr>
+ <tr>
+<td>מאפיינים רגשיים</td>
+<td id="cat3_a">0</td>
+<td id="cat3_b">0</td>
+<td id="cat3_total">0</td>
+        </tr>
+ <tr>
+<td>מאפיינים התנהגותיים</td>
+<td id="cat4_a">0</td>
+<td id="cat4_b">0</td>
+<td id="cat4_total">0</td>
+        </tr>
+ <tr>
+<td>מאפיינים קוגניטיביים</td>
+<td id="cat5_a">0</td>
+<td id="cat5_b">0</td>
+<td id="cat5_total">0</td>
+        </tr>
+ <tr>
+<td>מאפיינים חיסוניים</td>
+<td id="cat6_a">0</td>
+<td id="cat6_b">0</td>
+<td id="cat6_total">0</td>
+        </tr>
+ <tr>
+<td>מאפיינים מטבולים</td>
+<td id="cat7_a">0</td>
+<td id="cat7_b">0</td>
+<td id="cat7_total">0</td>
+        </tr>
+<tr>
+            <td><strong>סה"כ</strong></td>
+            <td id="total_a">0</td>
+            <td id="total_b">0</td>
+            <td id="grand_total">0</td>
+        </tr>
+    </table>                                                                                                                                                                                                                                                                                                       <script>
+        function calculateTotals() {
+            let totalA = 0;
+            let totalB = 0;
+            let grandTotal = 0;
+for (let cat = 1; cat <=7; cat++) {
+                let catA = 0;
+                let catB = 0;
+
+                document.querySelectorAll(`input[name^="cat${cat}_a_"]`).forEach(checkbox => {
+                    if (checkbox.checked) catA++;
+                });
+
+                document.querySelectorAll(`input[name^="cat${cat}_b_"]`).forEach(checkbox => {
+                    if (checkbox.checked) catB++;
+                });
+
+                document.getElementById(`cat${cat}_a`).textContent = catA;
+                document.getElementById(`cat${cat}_b`).textContent = catB;
+                document.getElementById(`cat${cat}_total`).textContent = catA + catB;
+
+                totalA += catA;
+                totalB += catB;
+                grandTotal += catA + catB;
+            }
+
+            document.getElementById('total_a').textContent = totalA;
+            document.getElementById('total_b').textContent = totalB;
+            document.getElementById('grand_total').textContent = grandTotal;
+        }
+    </script>
+</body>
+</html>
